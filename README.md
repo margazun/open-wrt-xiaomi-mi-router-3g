@@ -81,7 +81,7 @@ tar -C ${MOUNT} -cvf - . | tar -C /mnt -xf -
 mkdir /media
 MEDIA="${DISK}2"
 eval $(block info ${MEDIA} | grep -o -e 'UUID="\S*"')
-uci set fstab.media='media'
+uci set fstab.media='mount'
 uci set fstab.media.uuid="${UUID}"
 uci set fstab.media.target="/media"
 uci set fstab.media.enabled=1
