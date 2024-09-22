@@ -83,7 +83,7 @@ MEDIA="${DISK}2"
 eval $(block info ${MEDIA} | grep -o -e 'UUID="\S*"')
 uci set fstab.media='mount'
 uci set fstab.media.uuid="${UUID}"
-uci set fstab.media.target="/media"
+uci set fstab.media.target="/mnt"
 uci set fstab.media.enabled=1
 uci commit fstab
 ```
@@ -107,7 +107,7 @@ config mount 'rwm'
 
 config mount 'media'
 	option uuid '32ad3067-49b2-4e19-9a0b-9c1837441ead'
-	option target '/media'
+	option target '/mnt'
 	option enabled '1'
 ```
 * Перегружаем роутер ```reboot now```
